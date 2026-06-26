@@ -15,6 +15,8 @@ namespace POE_Check
 { //start of namespace
     public partial class MainWindow : Window
     {//start of class
+
+        //create arrayList
         public ArrayList reply = new ArrayList();
         public ArrayList ignore = new ArrayList();
 
