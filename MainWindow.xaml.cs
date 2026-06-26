@@ -780,4 +780,4 @@ namespace POE_Check
             chats.ScrollIntoView(chats.Items[chats.Items.Count - 1]);
         }
     }//end of class
-}
+}//end of namespace
