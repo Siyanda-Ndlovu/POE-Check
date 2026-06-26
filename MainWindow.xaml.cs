@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 
 namespace POE_Check
-{
+{ //start of namespace
     public partial class MainWindow : Window
     {
         public ArrayList reply = new ArrayList();
