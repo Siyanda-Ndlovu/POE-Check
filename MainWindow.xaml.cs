@@ -779,5 +779,5 @@ namespace POE_Check
             chats.Items.Add(messageBorder);
             chats.ScrollIntoView(chats.Items[chats.Items.Count - 1]);
         }
-    }
+    }//end of class
 }
