@@ -1,0 +1,254 @@
+<Window x:Class="POE_Check.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POE_Check"
+        mc:Ignorable="d"
+        Title="CyberBuddy" Height="450" Width="800">
+    <Grid>
+
+        <!--logo grid, first page-->
+        <Grid x:Name="home_grid" Visibility="Visible" Background="DarkKhaki">
+            <Image Source="/POE_Logo.png" Height="200" Width="300" Margin="0,0,0,220"/>
+
+            <TextBlock Text="Welcome to CyberBuddy, Click start to proceed"
+                       Height="20" Width="270" TextAlignment="Center"
+                       Margin="0,30,0,0" FontFamily="Arial Rounded MT Bold"/>
+
+            <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1"
+                    Background="Khaki" Height="40" Width="300" Margin="0,200,0,0">
+                <Button Content="Start" Click="start" Background="Transparent"
+                        BorderThickness="0" FontSize="14"
+                        FontFamily="Arial Rounded MT Bold"/>
+            </Border>
+        </Grid>
+
+        <!--Prompt the user to enter the username-->
+        <Grid x:Name="username_grid" Visibility="Hidden" Background="DarkKhaki">
+            <Image Source="/POE_Logo.png" Height="200" Width="300" Margin="0,0,0,220"/>
+
+            <TextBlock Text="Enter your name" Height="20" Width="270"
+                       TextAlignment="Center" Margin="0,30,0,0"
+                       Foreground="Black" FontFamily="Arial Rounded MT Bold"
+                       FontSize="14"/>
+
+            <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1"
+                    Background="Khaki" Height="40" Width="270" Margin="0,100,0,0">
+                <TextBox x:Name="usernames_input" TextAlignment="Center"
+                         FontFamily="Arial Rounded MT Bold" Foreground="Black"
+                         Background="Transparent" BorderThickness="0" FontSize="15"/>
+            </Border>
+
+            <TextBlock Text="Please enter your name to continue..."
+                       Height="20" Width="270" TextAlignment="Center"
+                       Margin="0,180,0,0" Foreground="White"
+                       FontFamily="Arial Rounded MT Bold"/>
+
+            <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1"
+                    Background="Khaki" Height="40" Width="270" Margin="0,250,0,0">
+                <Button Content="Submit Name" Click="submit_name"
+                        Background="Transparent" BorderThickness="0"
+                        Foreground="Black" FontSize="15"
+                        FontFamily="Arial Rounded MT Bold"/>
+            </Border>
+        </Grid>
+
+        <!--Main Part 3 page using Part 2 colours/style-->
+        <Grid x:Name="MainPage" Visibility="Hidden" Background="DarkKhaki">
+
+            <!--Right-side menu-->
+            <Grid Margin="595,0,0,0" Width="205" Background="DarkKhaki">
+                <Border Margin="10" CornerRadius="15" BorderBrush="Black" BorderThickness="1" Background="Khaki">
+                    <StackPanel Width="170" Margin="10">
+                        <TextBlock Text="Menu" FontSize="18" FontWeight="Bold"
+                                   TextAlignment="Center" Margin="0,0,0,15"
+                                   FontFamily="Arial Rounded MT Bold"/>
+
+                        <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="DarkKhaki" Height="35" Margin="0,5">
+                            <Button Content="Chats" Click="chatting" Background="Transparent" BorderThickness="0" FontFamily="Arial Rounded MT Bold"/>
+                        </Border>
+
+                        <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="DarkKhaki" Height="35" Margin="0,5">
+                            <Button Content="Task Reminders" Click="reminders" Background="Transparent" BorderThickness="0" FontFamily="Arial Rounded MT Bold"/>
+                        </Border>
+
+                        <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="DarkKhaki" Height="35" Margin="0,5">
+                            <Button Content="Activity Log" Click="activity" Background="Transparent" BorderThickness="0" FontFamily="Arial Rounded MT Bold"/>
+                        </Border>
+
+                        <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="DarkKhaki" Height="35" Margin="0,5">
+                            <Button Content="Quiz Game" Click="game" Background="Transparent" BorderThickness="0" FontFamily="Arial Rounded MT Bold"/>
+                        </Border>
+
+                        <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="DarkKhaki" Height="35" Margin="0,25,0,5">
+                            <Button Content="Exit" Click="exit" Background="Transparent" BorderThickness="0" FontFamily="Arial Rounded MT Bold"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!--Chat page-->
+            <!--Chat page-->
+            <Grid x:Name="chat_page"
+      Visibility="Visible"
+      Background="DarkKhaki"
+      Margin="0,0,205,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Chat messages area -->
+                <Border
+        Grid.Row="0"
+        CornerRadius="15"
+        BorderBrush="Black"
+        BorderThickness="1"
+        Background="Silver"
+        Margin="20,10,20,10">
+
+                    <ListView
+            x:Name="chats"
+            Background="Transparent"
+            BorderThickness="0"/>
+                </Border>
+
+                <!-- Bottom input area -->
+                <Grid Grid.Row="1" Margin="20,5,20,10">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="140"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Question TextBox -->
+                    <Border
+            Grid.Column="0"
+            CornerRadius="15"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Background="White"
+            Height="50"
+            Margin="0,0,10,0"
+            VerticalAlignment="Center">
+
+                        <TextBox
+                x:Name="question"
+                Background="Transparent"
+                BorderThickness="0"
+                FontSize="15"
+                Padding="10"
+                VerticalContentAlignment="Center"/>
+                    </Border>
+
+                    <!-- Send Button -->
+                    <Border
+            Grid.Column="1"
+            CornerRadius="15"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Background="Khaki"
+            Height="50"
+            VerticalAlignment="Center">
+
+                        <Button
+                Content="Send"
+                Click="send"
+                Background="Transparent"
+                BorderThickness="0"
+                FontSize="15"
+                FontFamily="Arial Rounded MT Bold"/>
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+            <!--Task reminder page-->
+            <Grid x:Name="reminderPage" Visibility="Hidden" Background="DarkKhaki" Margin="0,0,205,0">
+                <TextBlock Text="Task Reminders" FontSize="22" FontWeight="Bold"
+                           FontFamily="Arial Rounded MT Bold" HorizontalAlignment="Center"
+                           Margin="0,20,0,0"/>
+
+                <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1" Background="Silver" Margin="20,70,20,65">
+                    <ListView x:Name="view_tasks" MouseDoubleClick="remind_append_MouseDoubleClick"
+                              Background="Transparent" BorderThickness="0"/>
+                </Border>
+
+                <TextBlock Text="Double click a task to mark it as done. Double click again to delete/remove it once done."
+                           TextAlignment="Center" TextWrapping="Wrap" Foreground="Red"
+                           FontFamily="Arial Rounded MT Bold" Margin="20,390,20,20"/>
+            </Grid>
+
+            <!--Hidden history page kept because code references it-->
+            <Grid x:Name="HistoryPage" Visibility="Hidden" Background="DarkKhaki" Margin="0,0,205,0">
+                <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1" Background="Silver" Margin="20,70,20,65">
+                    <ListView x:Name="history_append" Background="Transparent" BorderThickness="0"/>
+                </Border>
+            </Grid>
+
+            <!--Activity log page-->
+            <Grid x:Name="LogPage" Visibility="Hidden" Background="DarkKhaki" Margin="0,0,205,0">
+                <TextBlock Text="Activity Log" FontSize="22" FontWeight="Bold"
+                           FontFamily="Arial Rounded MT Bold" HorizontalAlignment="Center"
+                           Margin="0,20,0,0"/>
+
+                <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1" Background="Silver" Margin="20,70,20,65">
+                    <ListView x:Name="log_append" Background="Transparent" BorderThickness="0"/>
+                </Border>
+
+                <TextBlock Text="All app activities will be shown here."
+                           TextAlignment="Center" TextWrapping="Wrap" Foreground="Red"
+                           FontFamily="Arial Rounded MT Bold" Margin="20,390,20,20"/>
+            </Grid>
+
+            <!--Quiz game page-->
+            <Grid x:Name="gamePage" Visibility="Hidden" Background="DarkKhaki" Margin="0,0,205,0">
+                <TextBlock Text="Cybersecurity Quiz" FontSize="22" FontWeight="Bold"
+                           FontFamily="Arial Rounded MT Bold" HorizontalAlignment="Center"
+                           Margin="0,20,0,0"/>
+
+                <TextBlock x:Name="score_count" Text="Score&#x0a;0" FontSize="16"
+                           FontFamily="Arial Rounded MT Bold" HorizontalAlignment="Right"
+                           Margin="0,20,30,0"/>
+
+                <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1" Background="Silver"
+                        Width="500" Height="80" Margin="20,80,20,0" VerticalAlignment="Top">
+                    <TextBlock x:Name="question_asked" Text="Question will appear here"
+                               TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center"
+                               FontSize="15" FontFamily="Arial Rounded MT Bold" Padding="10"/>
+                </Border>
+
+                <StackPanel Margin="70,180,70,70">
+                    <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="Silver" Height="40" Margin="0,5">
+                        <Button x:Name="optionButtonOne" Click="optionSelected" Background="Gray" Foreground="White" BorderThickness="0"/>
+                    </Border>
+
+                    <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="Silver" Height="40" Margin="0,5">
+                        <Button x:Name="optionButtonTwo" Click="optionSelected" Background="Gray" Foreground="White" BorderThickness="0"/>
+                    </Border>
+
+                    <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="Silver" Height="40" Margin="0,5">
+                        <Button x:Name="optionButtonThree" Click="optionSelected" Background="Gray" Foreground="White" BorderThickness="0"/>
+                    </Border>
+
+                    <Border CornerRadius="12" BorderBrush="Black" BorderThickness="1" Background="Silver" Height="40" Margin="0,5">
+                        <Button x:Name="optionButtonFour" Click="optionSelected" Background="Gray" Foreground="White" BorderThickness="0"/>
+                    </Border>
+                </StackPanel>
+
+                <Border CornerRadius="15" BorderBrush="Black" BorderThickness="1" Background="Khaki"
+                        Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+                    <Button Content="Submit Answer" Click="answerButton" Background="Transparent" BorderThickness="0"
+                            FontFamily="Arial Rounded MT Bold"/>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
